@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 11, 2021 at 12:27 PM
--- Server version: 10.3.15-MariaDB
--- PHP Version: 7.2.19
+-- Generation Time: Apr 16, 2024 at 04:46 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -36,14 +35,14 @@ CREATE TABLE `tbladmin` (
   `Email` varchar(120) DEFAULT NULL,
   `Password` varchar(200) DEFAULT NULL,
   `AdminRegdate` timestamp NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbladmin`
 --
 
 INSERT INTO `tbladmin` (`ID`, `AdminName`, `UserName`, `MobileNumber`, `Email`, `Password`, `AdminRegdate`) VALUES
-(1, 'Admin', 'admin', 1234567891, 'adminuser@gmail.com', 'f925916e2754e5e03f75dd58a5733251', '2020-04-14 06:44:27');
+(1, 'Piyal', 'piyal', 1234567891, 'adminuser@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', '2024-04-01 06:44:27');
 
 -- --------------------------------------------------------
 
@@ -55,17 +54,16 @@ CREATE TABLE `tblcategory` (
   `ID` int(10) NOT NULL,
   `CategoryName` varchar(200) DEFAULT NULL,
   `CreationDate` timestamp NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tblcategory`
 --
 
 INSERT INTO `tblcategory` (`ID`, `CategoryName`, `CreationDate`) VALUES
-(8, 'AC Bus', '2021-07-04 14:27:53'),
-(9, 'Non AC Bus', '2021-07-04 14:28:32'),
-(10, 'Volvo Bus', '2021-07-04 14:28:47'),
-(11, 'Delux Bus', '2021-07-04 14:29:01');
+(13, 'AC Bus', '2024-04-07 13:11:01'),
+(14, 'Non AC Bus', '2024-04-07 13:11:14'),
+(15, 'Local Bus', '2024-04-07 13:11:22');
 
 -- --------------------------------------------------------
 
@@ -80,15 +78,14 @@ CREATE TABLE `tblcontact` (
   `Message` mediumtext DEFAULT NULL,
   `EnquiryDate` timestamp NOT NULL DEFAULT current_timestamp(),
   `IsRead` int(5) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tblcontact`
 --
 
 INSERT INTO `tblcontact` (`ID`, `Name`, `Email`, `Message`, `EnquiryDate`, `IsRead`) VALUES
-(1, 'Kiran', 'kran@gmail.com', 'cost of volvo place pritampura to dwarka', '2021-07-05 07:26:24', 1),
-(2, 'Anuj', 'AKKK@GMAIL.COM', 'This is for testing.', '2021-07-11 08:55:16', 1);
+(4, 'Ashikur Rahman Piyal', 'a@gmail2.com', 'Thank you', '2024-04-08 11:22:06', 1);
 
 -- --------------------------------------------------------
 
@@ -104,15 +101,15 @@ CREATE TABLE `tblpage` (
   `Email` varchar(200) DEFAULT NULL,
   `MobileNumber` bigint(10) DEFAULT NULL,
   `UpdationDate` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tblpage`
 --
 
 INSERT INTO `tblpage` (`ID`, `PageType`, `PageTitle`, `PageDescription`, `Email`, `MobileNumber`, `UpdationDate`) VALUES
-(1, 'aboutus', 'About us', '<font color=\"#747474\" face=\"Roboto, sans-serif, arial\"><span style=\"font-size: 13px;\"><b>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</b></span></font><br>', NULL, NULL, '2021-07-11 08:54:33'),
-(2, 'contactus', 'Contact Us', '                #890 CFG Apartment, Mayur Vihar, Delhi-India.', 'infotest@gmail.com', 4654789799, '2021-07-11 08:54:50');
+(1, 'aboutus', 'About us', '<font color=\"#747474\" face=\"Roboto, sans-serif, arial\"><span style=\"font-size: 13px;\"><b>We have made this</b></span></font><div><font color=\"#747474\" face=\"Roboto, sans-serif, arial\"><span style=\"font-size: 13px;\"><b><br></b></span></font></div>', NULL, NULL, '2024-04-07 13:12:11'),
+(2, 'contactus', 'Contact Us', 'Basundhara,Dhaka,Bangladesh', 'piyal@gmail.com', 1712345678, '2024-04-07 13:12:35');
 
 -- --------------------------------------------------------
 
@@ -136,19 +133,24 @@ CREATE TABLE `tblpass` (
   `ToDate` varchar(200) DEFAULT NULL,
   `Cost` decimal(10,0) DEFAULT NULL,
   `PasscreationDate` timestamp NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tblpass`
 --
 
 INSERT INTO `tblpass` (`ID`, `PassNumber`, `FullName`, `ProfileImage`, `ContactNumber`, `Email`, `IdentityType`, `IdentityCardno`, `Category`, `Source`, `Destination`, `FromDate`, `ToDate`, `Cost`, `PasscreationDate`) VALUES
-(1, '286529906', 'Yogesh Kumar', '779b7513263ef185b6d094af290ef5401625471444.png', 4654464646, 'yogi@gmail.com', 'Adhar Card', 'AD-122346', 'Delux Bus', 'dfg', 'kgf', '2020-04-14', '2020-05-14', '900', '2020-04-14 11:47:03'),
-(2, '915773340', 'Suresh Khanna', '779b7513263ef185b6d094af290ef5401625471444.png', 9879878978, 'suresh@gmail.com', 'Any Other Govt Issued Doc', 'KTI-896567', 'Delux Bus', NULL, NULL, '2020-04-14', '2020-07-31', '900', '2020-04-13 11:50:15'),
-(3, '884595667', 'Anuj kumar', '779b7513263ef185b6d094af290ef5401625471444.png', 1234567890, 'phpgurukulofficial@Gmail.com', 'Voter Card', '5235252', 'Delux Bus', 'Pritampura', 'Dwarka', '2020-04-16', '2020-04-19', '600', '2020-04-16 02:38:27'),
-(4, '210712236', 'Abir Singh', 'e76de47f621d84adbab3266e3239baee1625460898.png', 4654646546, 'abir@gmail.com', 'Voter Card', '5646465', 'Non AC Bus', 'abc', 'dbc', '2021-07-05', '2021-07-16', '900', '2021-07-04 15:01:38'),
-(5, '474965545', 'Augustya', '779b7513263ef185b6d094af290ef5401625471444.png', 6546465464, 'aug@gmail.com', 'Student Card', '789456', 'Delux Bus', 'Delhi', 'Meerut', '2021-07-05', '2021-07-31', '1800', '2021-07-05 07:50:44'),
-(6, '681924385', 'Anuj kumar', 'ea3dc39ca0b2f6b5f17abddec1f0e9a41625993624.png', 1234569870, 'ak@test.com', 'Driving License', 'GGGGGGHGH2423423432', 'Delux Bus', 'Laxmi Nagar', 'Central Secretariat', '2021-07-15', '2021-07-30', '500', '2021-07-11 08:53:44');
+(7, '175076998', 'Piyal', '4a47a0db6e60853dedfcfdf08a5ca2491712498716.png', 123, 'piyal@gmail.com', 'Student Card', '23s', 'Non AC Bus', 'asdf', 'asdf', '2024-04-18', NULL, 500, '2024-04-07 14:05:16'),
+(8, '493339233', 'Sukanto', 'ad93ff7b284795da1100259481c3739e1712506152.jpg', 123, 'a@gmail2.com', 'Student Card', '23s', 'Local Bus', 'dhaka', 'khulna', '2024-04-09', '2024-04-10', 500, '2024-04-07 16:09:12'),
+(9, '708027650', 'Sukanto', 'ad93ff7b284795da1100259481c3739e1712570951.jpg', 123, 'a@gmail2.com', 'Student Card', '23s', 'Local Bus', 'dhaka', 'khulna', '2024-04-09', '2024-04-10', 500, '2024-04-08 10:09:11'),
+(10, '181413729', 'Piyal', '819c407093b5cf06a4c8d04c95481c581712571030jpeg', 123, 'piyal@gmail.com', 'Passport', '23s', 'AC Bus', 'dhaka', 'khulna', '2024-04-10', '2024-04-11', 1000, '2024-04-08 10:10:30'),
+(11, '611241637', 'joy', '9cf49766d6a1ed25ac4fd14f9f0bdd371712573118.jpg', 123, 'a@gmail', 'Student Card', '23s', 'AC Bus', 'dhaka', 'khulna', '2024-04-11', '2024-04-17', 1000, '2024-04-08 10:45:18'),
+(12, '182569658', 'Piyal', '819c407093b5cf06a4c8d04c95481c581712573210jpeg', 123, 'piyal@gmail.com', 'Voter Card', '23s', 'AC Bus', 'dhaka', 'khulna', '2024-04-23', '2024-04-24', 500, '2024-04-08 10:46:50'),
+(13, '329107386', 'Piyal', '819c407093b5cf06a4c8d04c95481c581712575141jpeg', 123, 'piyal@gmail.com', 'Voter Card', '23s', 'AC Bus', 'dhaka', 'khulna', '2024-04-17', '2024-04-20', 1000, '2024-04-08 11:19:01'),
+(14, '488445035', 'Sukanto', 'ad93ff7b284795da1100259481c3739e1712576112.jpg', 123, 'a@gmail', 'Student Card', '23s', 'Non AC Bus', 'dhaka', 'khulna', '2024-04-19', '2024-04-18', 1000, '2024-04-08 11:35:12'),
+(15, '597484934', 'Sukanto', 'ad93ff7b284795da1100259481c3739e1712576492.jpg', 123, 'a@gmail2.com', 'Student Card', '23s', 'Local Bus', 'dhaka', 'khulna', '2024-04-18', '2024-04-05', 1000, '2024-04-08 11:41:32'),
+(16, '870552288', 'sukanto', 'ad93ff7b284795da1100259481c3739e1712576603.jpg', 123, 'a@gmail2.com', 'Student Card', '23s', 'AC Bus', 'dhaka', 'khulna', '2024-04-02', '2024-04-09', 1000, '2024-04-08 11:43:23'),
+(17, '526810396', 'joy', '9cf49766d6a1ed25ac4fd14f9f0bdd371712576722.jpg', 123, 'a@gmail2.com', 'Student Card', '23s', 'Local Bus', 'dhaka', 'khulna', '2024-04-09', '2024-04-10', 1000, '2024-04-08 11:45:22');
 
 --
 -- Indexes for dumped tables
@@ -198,13 +200,13 @@ ALTER TABLE `tbladmin`
 -- AUTO_INCREMENT for table `tblcategory`
 --
 ALTER TABLE `tblcategory`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `tblcontact`
 --
 ALTER TABLE `tblcontact`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tblpage`
@@ -216,7 +218,7 @@ ALTER TABLE `tblpage`
 -- AUTO_INCREMENT for table `tblpass`
 --
 ALTER TABLE `tblpass`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
