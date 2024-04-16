@@ -43,7 +43,7 @@ error_reporting(0);
 			<div class="contact-agileinfo">
 				<div class="col-md-7 contact-form wthree">
 					<form action="#" method="post">
-						<input id="searchdata" type="text" name="searchdata" placeholder="Search by Pass Number" required="true">
+						<input id="searchdata" type="text" name="searchdata" placeholder="Search by Pass/Phone Number" required="true">
 					 <button style="padding-top: 14px;" type="submit" class="btn btn-primary" name="search" id="submit">Search</button>
 					</form>
 				</div>
@@ -71,7 +71,7 @@ $sdata=$_POST['searchdata'];
                                     </thead>
                                     <tbody>
                                         <?php
-$sql="SELECT * from tblpass where PassNumber like '$sdata%'";
+$sql="SELECT * from tblpass where PassNumber like '$sdata%'|| ContactNumber like '$sdata%'";
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
