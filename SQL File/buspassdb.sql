@@ -31,7 +31,7 @@ CREATE TABLE `tbladmin` (
   `ID` int(10) NOT NULL,
   `AdminName` varchar(120) DEFAULT NULL,
   `UserName` varchar(120) DEFAULT NULL,
-  `MobileNumber` bigint(10) DEFAULT NULL,
+  `MobileNumber` bigint(20) DEFAULT NULL,
   `Email` varchar(120) DEFAULT NULL,
   `Password` varchar(200) DEFAULT NULL,
   `AdminRegdate` timestamp NULL DEFAULT current_timestamp()
@@ -99,7 +99,7 @@ CREATE TABLE `tblpage` (
   `PageTitle` varchar(200) DEFAULT NULL,
   `PageDescription` mediumtext DEFAULT NULL,
   `Email` varchar(200) DEFAULT NULL,
-  `MobileNumber` bigint(10) DEFAULT NULL,
+  `MobileNumber` bigint(20) DEFAULT NULL,
   `UpdationDate` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -122,7 +122,7 @@ CREATE TABLE `tblpass` (
   `PassNumber` varchar(200) DEFAULT NULL,
   `FullName` varchar(200) DEFAULT NULL,
   `ProfileImage` varchar(200) DEFAULT NULL,
-  `ContactNumber` bigint(10) DEFAULT NULL,
+  `ContactNumber` bigint(20) DEFAULT NULL,
   `Email` varchar(200) DEFAULT NULL,
   `IdentityType` varchar(200) DEFAULT NULL,
   `IdentityCardno` varchar(200) DEFAULT NULL,
