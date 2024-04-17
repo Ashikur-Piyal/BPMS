@@ -26,7 +26,7 @@
                   <p class="card-text">I love playing with websites! I use my computer skills to
                     create cool and colorful online stuff. I'm a storyteller.I enjoy making up stories that
                     bring everyday moments to life or create exciting adventures.</p>
-                  <a href="https://github.com/Rayhan-Pervej" class="btn btn-primary" target="_blank">View More</a>
+                  <a href="https://github.com/SukantoMondol" class="btn btn-primary" target="_blank">View More</a>
                 </div>
               </div>
               <div class="card" style="width: 23rem;">
@@ -34,15 +34,15 @@
                 <div class="card-body">
                   <h5 class="card-title">Shuvro Shourav Sarkar</h5>
                   <p class="card-text">A Computer Science and Engineering enthusiast on a mission to turn code into creative solutions.</p>
-                  <a href="https://github.com/maimonaminha" class="btn btn-primary" target="_blank">View More</a>
+                  <a href="https://github.com/Shuvro-S-Sarker" class="btn btn-primary" target="_blank">View More</a>
                 </div>
               </div>
               <div class="card" style="width: 23rem;">
                 <img src="images/432377564_2464466150414169_4883582645597734897_n.jpg" class="card-img-top ppp" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title">Joy</h5>
+                  <h5 class="card-title">Joy Tarafder</h5>
                   <p class="card-text">A Computer Science and Engineering enthusiast on a mission to turn code into creative solutions.</p>
-                  <a href="https://github.com/maimonaminha" class="btn btn-primary" target="_blank">View More</a>
+                  <a href="https://github.com/JoyTarafder" class="btn btn-primary" target="_blank">View More</a>
                 </div>
               </div>
               <div class="card" style="width: 23rem;">
@@ -52,7 +52,7 @@
                   <p class="card-text">I love playing with websites! I use my computer skills to
                     create cool and colorful online stuff. I'm a storyteller.I enjoy making up stories that
                     bring everyday moments to life or create exciting adventures.</p>
-                  <a href="" class="btn btn-primary" target="_blank">View More</a>
+                  <a href="https://github.com/ASMRakibulHosainRonok" class="btn btn-primary" target="_blank">View More</a>
                 </div>
               </div>
         </div>
