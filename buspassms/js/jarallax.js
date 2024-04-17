@@ -23,7 +23,7 @@
                 window.cancelAnimationFrame = (window[vp+'CancelAnimationFrame']
                                            || window[vp+'CancelRequestAnimationFrame']);
             }
-            if (/iP(ad|hone|od).*OS 6/.test(window.navigator.userAgent) // iOS6 is buggy
+            if (/iP(ad|hone|od).*OS 6/.test(window.navigator.userAgent) 
                 || !window.requestAnimationFrame || !window.cancelAnimationFrame) {
                 var lastTime = 0;
                 window.requestAnimationFrame = function(callback) {
@@ -62,7 +62,6 @@
                 'transform':'transform'
             };
 
-        // Add it to the body to get the computed style.
         (document.body || document.documentElement).insertBefore(el, null);
 
         for (var t in transforms) {
@@ -81,7 +80,7 @@
 
     var jarallaxList = [];
 
-    // Jarallax instance
+    
     var Jarallax = (function() {
         var instanceID = 0;
 
@@ -102,7 +101,7 @@
             dataOptions      = _this.$item.data('jarallax') || {};
             _this.options    = $.extend({}, _this.defaults, dataOptions, userOptions);
 
-            // fix speed option [0.0, 1.0]
+        
             _this.options.speed = Math.min(1, Math.max(0, parseFloat(_this.options.speed)));
 
             _this.instanceID = instanceID++;
@@ -130,7 +129,7 @@
     Jarallax.prototype.initImg = function() {
         var _this = this;
 
-        // get image src
+    
         if(_this.image.src === null) {
             _this.image.src = _this.$item.css('background-image').replace(/^url\(['"]?/g,'').replace(/['"]?\)$/g,'');
         }
@@ -156,7 +155,7 @@
                 position              : 'fixed'
             };
 
-        // container for parallax image
+    
         _this.image.$container = $('<div>')
             .css(containerStyles)
             .css({
@@ -166,13 +165,13 @@
             .attr('id', 'jarallax-container-' + _this.instanceID)
             .prependTo(_this.$item);
 
-        // use img tag
+       
         if(_this.image.useImgTag) {
             _this.image.$item = $('<img>').attr('src', _this.image.src);
             imageStyles = $.extend({}, containerStyles, imageStyles)
         }
 
-        // use div with background image
+      
         else {
             _this.image.$item = $('<div>');
             imageStyles = $.extend({
@@ -182,7 +181,7 @@
             }, containerStyles, imageStyles)
         }
 
-        // parallax image
+       
         _this.image.$item.css(imageStyles)
             .prependTo(_this.image.$container);
 
@@ -196,10 +195,10 @@
                 _this.onScroll();
             })
 
-            // remove default user background
+   
             _this.$item.data('jarallax-original-styles', _this.$item.attr('style'));
 
-            // timeout to fix IE blinking
+           
             setTimeout(function() {
                 _this.$item.css({
                     'background-image'      : 'none',
@@ -213,7 +212,7 @@
     Jarallax.prototype.destroy = function() {
         var _this = this;
 
-        // remove from instances list
+    
         for(var k = 0, len = jarallaxList.length; k < len; k++) {
             if(jarallaxList[k].instanceID === _this.instanceID) {
                 jarallaxList.splice(k, 1);
@@ -221,7 +220,6 @@
             }
         }
 
-        // remove additional styles for clip
         $('head #jarallax-clip-' + _this.instanceID).remove();
 
         _this.$item.attr('style', _this.$item.data('jarallax-original-styles'));
@@ -232,7 +230,7 @@
         delete _this.$item[0].jarallax;
     }
 
-    // round to 2 decimals
+
     Jarallax.prototype.round = function(num) {
         return Math.floor(num * 100) / 100;
     }
@@ -249,8 +247,7 @@
         tempImg.src = src;
     }
 
-    // it will remove some image overlapping
-    // overlapping occur due to an image position fixed inside absolute possition element (webkit based browsers works without any fix)
+    
     Jarallax.prototype.clipContainer = function() {
         var _this  = this,
             width  = _this.image.$container.outerWidth(true),
@@ -269,7 +266,7 @@
             '}'
         ].join('\n');
 
-        // add clip styles inline (this method need for support IE8 and less browsers)
+        
         if ($styles[0].styleSheet) {
             $styles[0].styleSheet.cssText = css;
         } else {
@@ -297,19 +294,19 @@
             height : Math.max(whdH, contH) * Math.max(_this.options.speed, 1)
         };
 
-        // cover by width
+   
         if(css.width / css.height > imgW / imgH) {
             resultWidth = css.width;
             resultHeight = css.width * imgH / imgW;
         }
 
-        // cover by height
+    
         else {
             resultWidth = css.height * imgW / imgH;
             resultHeight = css.height;
         }
         
-        // for img tag
+     
         if(_this.image.useImgTag) {
             css.width = _this.round(resultWidth);
             css.height = _this.round(resultHeight);
@@ -317,12 +314,12 @@
             css.marginTop = _this.round(- (resultHeight - contH) / 2);
         }
 
-        // for div with background image
+   
         else {
             css.backgroundSize = _this.round(resultWidth) + 'px ' + _this.round(resultHeight) + 'px';
         }
 
-        // apply to item
+ 
         _this.image.$item.css(css);
     };
 
@@ -363,7 +360,7 @@
         _this.image.$item.css(css);
     };
 
-    // init events
+
     (function() {
         $(window).on('scroll.jarallax', function() {
             window.requestAnimationFrame(function() {
@@ -410,13 +407,13 @@
         return this;
     };
 
-    // no conflict
+
     $.fn.jarallax.noConflict = function () {
         $.fn.jarallax = oldJarallax;
         return this;
     };
 
-    // data-jarallax initialization
+ 
     $(document).on('ready.data-jarallax', function () {
         $('[data-jarallax]').jarallax();
     });

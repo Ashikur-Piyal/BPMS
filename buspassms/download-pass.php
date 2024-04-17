@@ -107,25 +107,23 @@ $cnt=$cnt+1;
 			</div>
 		</div>
 	</div>
-	<!-- //contact -->  
-	 
+
 	
 <?php include_once('includes/footer.php');?>   
  
-	<!-- js --> 
+
 	<script src="js/jquery-2.2.3.min.js"></script> 
 	<script src="js/SmoothScroll.min.js"></script>
 	<script src="js/jarallax.js"></script> 
 	<script type="text/javascript">
-		/* init Jarallax */
+
 		$('.jarallax').jarallax({
 			speed: 0.5,
 			imgWidth: 1366,
 			imgHeight: 768
 		})
 	</script>  
-	<!-- //js -->  
-	<!-- start-smooth-scrolling --> 
+
 	<script type="text/javascript" src="js/move-top.js"></script>
 	<script type="text/javascript" src="js/easing.js"></script>	
 	<script type="text/javascript">

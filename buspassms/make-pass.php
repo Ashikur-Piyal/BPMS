@@ -85,22 +85,22 @@ echo "<script>window.location.href ='make-pass.php'</script>";
 </head>
 
 <body>
-    <!--  wrapper -->
+  
     <div id="wrapper">
-         <!-- navbar top -->
+   
       <?php include_once('admin/includes/header.php');?>
-        <!--  page-wrapper -->
+ 
           <div id="page-wrapper">
             <div class="row">
-                 <!-- page header -->
+        
                 <div class="col-lg-12">
                     <h1 class="page-header">Make Pass</h1>
                 </div>
-                <!--end page header -->
+              
             </div>
             <div class="row">
                 <div class="col-lg-12">
-                    <!-- Form Elements -->
+             
                     <div class="panel panel-default">
                        
                         <div class="panel-body">

@@ -131,8 +131,7 @@ if (typeof jQuery === 'undefined') {
   $.fn.alert.Constructor = Alert
 
 
-  // ALERT NO CONFLICT
-  // =================
+
 
   $.fn.alert.noConflict = function () {
     $.fn.alert = old
@@ -140,8 +139,6 @@ if (typeof jQuery === 'undefined') {
   }
 
 
-  // ALERT DATA-API
-  // ==============
 
   $(document).on('click.bs.alert.data-api', dismiss, Alert.prototype.close)
 
@@ -151,8 +148,6 @@ if (typeof jQuery === 'undefined') {
 +function ($) {
   'use strict';
 
-  // BUTTON PUBLIC CLASS DEFINITION
-  // ==============================
 
   var Button = function (element, options) {
     this.$element  = $(element)
@@ -176,7 +171,7 @@ if (typeof jQuery === 'undefined') {
 
     if (data.resetText == null) $el.data('resetText', $el[val]())
 
-    // push to event loop to allow forms to submit
+  
     setTimeout($.proxy(function () {
       $el[val](data[state] == null ? this.options[state] : data[state])
 
@@ -209,8 +204,7 @@ if (typeof jQuery === 'undefined') {
   }
 
 
-  // BUTTON PLUGIN DEFINITION
-  // ========================
+
 
   function Plugin(option) {
     return this.each(function () {
@@ -231,8 +225,7 @@ if (typeof jQuery === 'undefined') {
   $.fn.button.Constructor = Button
 
 
-  // BUTTON NO CONFLICT
-  // ==================
+
 
   $.fn.button.noConflict = function () {
     $.fn.button = old
@@ -240,8 +233,6 @@ if (typeof jQuery === 'undefined') {
   }
 
 
-  // BUTTON DATA-API
-  // ===============
 
   $(document)
     .on('click.bs.button.data-api', '[data-toggle^="button"]', function (e) {
@@ -420,8 +411,6 @@ if (typeof jQuery === 'undefined') {
   }
 
 
-  // CAROUSEL PLUGIN DEFINITION
-  // ==========================
 
   function Plugin(option) {
     return this.each(function () {
@@ -443,17 +432,12 @@ if (typeof jQuery === 'undefined') {
   $.fn.carousel.Constructor = Carousel
 
 
-  // CAROUSEL NO CONFLICT
-  // ====================
 
   $.fn.carousel.noConflict = function () {
     $.fn.carousel = old
     return this
   }
 
-
-  // CAROUSEL DATA-API
-  // =================
 
   var clickHandler = function (e) {
     var href
@@ -491,8 +475,7 @@ if (typeof jQuery === 'undefined') {
 +function ($) {
   'use strict';
 
-  // COLLAPSE PUBLIC CLASS DEFINITION
-  // ================================
+
 
   var Collapse = function (element, options) {
     this.$element      = $(element)
@@ -644,8 +627,7 @@ if (typeof jQuery === 'undefined') {
   }
 
 
-  // COLLAPSE PLUGIN DEFINITION
-  // ==========================
+
 
   function Plugin(option) {
     return this.each(function () {
@@ -665,8 +647,7 @@ if (typeof jQuery === 'undefined') {
   $.fn.collapse.Constructor = Collapse
 
 
-  // COLLAPSE NO CONFLICT
-  // ====================
+
 
   $.fn.collapse.noConflict = function () {
     $.fn.collapse = old
@@ -674,8 +655,7 @@ if (typeof jQuery === 'undefined') {
   }
 
 
-  // COLLAPSE DATA-API
-  // =================
+
 
   $(document).on('click.bs.collapse.data-api', '[data-toggle="collapse"]', function (e) {
     var $this   = $(this)
@@ -695,8 +675,7 @@ if (typeof jQuery === 'undefined') {
 +function ($) {
   'use strict';
 
-  // DROPDOWN CLASS DEFINITION
-  // =========================
+
 
   var backdrop = '.dropdown-backdrop'
   var toggle   = '[data-toggle="dropdown"]'
@@ -718,7 +697,7 @@ if (typeof jQuery === 'undefined') {
 
     if (!isActive) {
       if ('ontouchstart' in document.documentElement && !$parent.closest('.navbar-nav').length) {
-        // if mobile we use a backdrop because click events don't delegate
+     
         $('<div class="dropdown-backdrop"/>').insertAfter($(this)).on('click', clearMenus)
       }
 
@@ -804,8 +783,7 @@ if (typeof jQuery === 'undefined') {
   }
 
 
-  // DROPDOWN PLUGIN DEFINITION
-  // ==========================
+
 
   function Plugin(option) {
     return this.each(function () {
@@ -823,8 +801,7 @@ if (typeof jQuery === 'undefined') {
   $.fn.dropdown.Constructor = Dropdown
 
 
-  // DROPDOWN NO CONFLICT
-  // ====================
+
 
   $.fn.dropdown.noConflict = function () {
     $.fn.dropdown = old
@@ -832,8 +809,7 @@ if (typeof jQuery === 'undefined') {
   }
 
 
-  // APPLY TO STANDARD DROPDOWN ELEMENTS
-  // ===================================
+
 
   $(document)
     .on('click.bs.dropdown.data-api', clearMenus)
@@ -850,8 +826,7 @@ if (typeof jQuery === 'undefined') {
 +function ($) {
   'use strict';
 
-  // MODAL CLASS DEFINITION
-  // ======================
+
 
   var Modal = function (element, options) {
     this.options             = options
@@ -927,7 +902,7 @@ if (typeof jQuery === 'undefined') {
       that.adjustDialog()
 
       if (transition) {
-        that.$element[0].offsetWidth // force reflow
+        that.$element[0].offsetWidth 
       }
 
       that.$element
@@ -939,7 +914,7 @@ if (typeof jQuery === 'undefined') {
       var e = $.Event('shown.bs.modal', { relatedTarget: _relatedTarget })
 
       transition ?
-        that.$dialog // wait for modal to slide in
+        that.$dialog 
           .one('bsTransitionEnd', function () {
             that.$element.trigger('focus').trigger(e)
           })
@@ -981,7 +956,7 @@ if (typeof jQuery === 'undefined') {
 
   Modal.prototype.enforceFocus = function () {
     $(document)
-      .off('focusin.bs.modal') // guard against infinite focus loop
+      .off('focusin.bs.modal') 
       .on('focusin.bs.modal', $.proxy(function (e) {
         if (this.$element[0] !== e.target && !this.$element.has(e.target).length) {
           this.$element.trigger('focus')
@@ -1044,7 +1019,7 @@ if (typeof jQuery === 'undefined') {
           : this.hide()
       }, this))
 
-      if (doAnimate) this.$backdrop[0].offsetWidth // force reflow
+      if (doAnimate) this.$backdrop[0].offsetWidth 
 
       this.$backdrop.addClass('in')
 
@@ -1074,7 +1049,7 @@ if (typeof jQuery === 'undefined') {
     }
   }
 
-  // these following methods are used to handle overflowing modals
+  
 
   Modal.prototype.handleUpdate = function () {
     this.adjustDialog()
@@ -1098,7 +1073,7 @@ if (typeof jQuery === 'undefined') {
 
   Modal.prototype.checkScrollbar = function () {
     var fullWindowWidth = window.innerWidth
-    if (!fullWindowWidth) { // workaround for missing window.innerWidth in IE8
+    if (!fullWindowWidth) { 
       var documentElementRect = document.documentElement.getBoundingClientRect()
       fullWindowWidth = documentElementRect.right - Math.abs(documentElementRect.left)
     }
@@ -1116,7 +1091,7 @@ if (typeof jQuery === 'undefined') {
     this.$body.css('padding-right', this.originalBodyPad)
   }
 
-  Modal.prototype.measureScrollbar = function () { // thx walsh
+  Modal.prototype.measureScrollbar = function () { 
     var scrollDiv = document.createElement('div')
     scrollDiv.className = 'modal-scrollbar-measure'
     this.$body.append(scrollDiv)
@@ -1126,8 +1101,7 @@ if (typeof jQuery === 'undefined') {
   }
 
 
-  // MODAL PLUGIN DEFINITION
-  // =======================
+
 
   function Plugin(option, _relatedTarget) {
     return this.each(function () {
@@ -1147,8 +1121,7 @@ if (typeof jQuery === 'undefined') {
   $.fn.modal.Constructor = Modal
 
 
-  // MODAL NO CONFLICT
-  // =================
+
 
   $.fn.modal.noConflict = function () {
     $.fn.modal = old
@@ -1156,19 +1129,18 @@ if (typeof jQuery === 'undefined') {
   }
 
 
-  // MODAL DATA-API
-  // ==============
+
 
   $(document).on('click.bs.modal.data-api', '[data-toggle="modal"]', function (e) {
     var $this   = $(this)
     var href    = $this.attr('href')
-    var $target = $($this.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+$)/, ''))) // strip for ie7
+    var $target = $($this.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+$)/, ''))) 
     var option  = $target.data('bs.modal') ? 'toggle' : $.extend({ remote: !/#/.test(href) && href }, $target.data(), $this.data())
 
     if ($this.is('a')) e.preventDefault()
 
     $target.one('show.bs.modal', function (showEvent) {
-      if (showEvent.isDefaultPrevented()) return // only register focus restorer if modal will actually get shown
+      if (showEvent.isDefaultPrevented()) return 
       $target.one('hidden.bs.modal', function () {
         $this.is(':visible') && $this.trigger('focus')
       })
@@ -1182,8 +1154,7 @@ if (typeof jQuery === 'undefined') {
 +function ($) {
   'use strict';
 
-  // TOOLTIP PUBLIC CLASS DEFINITION
-  // ===============================
+
 
   var Tooltip = function (element, options) {
     this.type       = null
@@ -1613,8 +1584,7 @@ if (typeof jQuery === 'undefined') {
   }
 
 
-  // TOOLTIP PLUGIN DEFINITION
-  // =========================
+
 
   function Plugin(option) {
     return this.each(function () {
@@ -1634,8 +1604,7 @@ if (typeof jQuery === 'undefined') {
   $.fn.tooltip.Constructor = Tooltip
 
 
-  // TOOLTIP NO CONFLICT
-  // ===================
+
 
   $.fn.tooltip.noConflict = function () {
     $.fn.tooltip = old
@@ -1649,8 +1618,7 @@ if (typeof jQuery === 'undefined') {
 +function ($) {
   'use strict';
 
-  // POPOVER PUBLIC CLASS DEFINITION
-  // ===============================
+
 
   var Popover = function (element, options) {
     this.init('popover', element, options)
@@ -1668,8 +1636,7 @@ if (typeof jQuery === 'undefined') {
   })
 
 
-  // NOTE: POPOVER EXTENDS tooltip.js
-  // ================================
+
 
   Popover.prototype = $.extend({}, $.fn.tooltip.Constructor.prototype)
 
@@ -1714,8 +1681,7 @@ if (typeof jQuery === 'undefined') {
   }
 
 
-  // POPOVER PLUGIN DEFINITION
-  // =========================
+ 
 
   function Plugin(option) {
     return this.each(function () {
@@ -1735,8 +1701,7 @@ if (typeof jQuery === 'undefined') {
   $.fn.popover.Constructor = Popover
 
 
-  // POPOVER NO CONFLICT
-  // ===================
+
 
   $.fn.popover.noConflict = function () {
     $.fn.popover = old
@@ -1749,8 +1714,7 @@ if (typeof jQuery === 'undefined') {
 +function ($) {
   'use strict';
 
-  // SCROLLSPY CLASS DEFINITION
-  // ==========================
+
 
   function ScrollSpy(element, options) {
     this.$body          = $(document.body)
@@ -1869,8 +1833,7 @@ if (typeof jQuery === 'undefined') {
   }
 
 
-  // SCROLLSPY PLUGIN DEFINITION
-  // ===========================
+
 
   function Plugin(option) {
     return this.each(function () {
@@ -1889,8 +1852,7 @@ if (typeof jQuery === 'undefined') {
   $.fn.scrollspy.Constructor = ScrollSpy
 
 
-  // SCROLLSPY NO CONFLICT
-  // =====================
+
 
   $.fn.scrollspy.noConflict = function () {
     $.fn.scrollspy = old
@@ -1898,8 +1860,7 @@ if (typeof jQuery === 'undefined') {
   }
 
 
-  // SCROLLSPY DATA-API
-  // ==================
+
 
   $(window).on('load.bs.scrollspy.data-api', function () {
     $('[data-spy="scroll"]').each(function () {
@@ -1915,8 +1876,7 @@ if (typeof jQuery === 'undefined') {
 +function ($) {
   'use strict';
 
-  // TAB CLASS DEFINITION
-  // ====================
+
 
   var Tab = function (element) {
     this.element = $(element)
@@ -1933,7 +1893,7 @@ if (typeof jQuery === 'undefined') {
 
     if (!selector) {
       selector = $this.attr('href')
-      selector = selector && selector.replace(/.*(?=#[^\s]*$)/, '') // strip for ie7
+      selector = selector && selector.replace(/.*(?=#[^\s]*$)/, '') 
     }
 
     if ($this.parent('li').hasClass('active')) return
@@ -1987,7 +1947,7 @@ if (typeof jQuery === 'undefined') {
           .attr('aria-expanded', true)
 
       if (transition) {
-        element[0].offsetWidth // reflow for transition
+        element[0].offsetWidth 
         element.addClass('in')
       } else {
         element.removeClass('fade')
@@ -2015,8 +1975,6 @@ if (typeof jQuery === 'undefined') {
   }
 
 
-  // TAB PLUGIN DEFINITION
-  // =====================
 
   function Plugin(option) {
     return this.each(function () {
@@ -2034,8 +1992,6 @@ if (typeof jQuery === 'undefined') {
   $.fn.tab.Constructor = Tab
 
 
-  // TAB NO CONFLICT
-  // ===============
 
   $.fn.tab.noConflict = function () {
     $.fn.tab = old
@@ -2043,8 +1999,7 @@ if (typeof jQuery === 'undefined') {
   }
 
 
-  // TAB DATA-API
-  // ============
+
 
   var clickHandler = function (e) {
     e.preventDefault()
@@ -2061,8 +2016,7 @@ if (typeof jQuery === 'undefined') {
 +function ($) {
   'use strict';
 
-  // AFFIX CLASS DEFINITION
-  // ======================
+
 
   var Affix = function (element, options) {
     this.options = $.extend({}, Affix.DEFAULTS, options)
@@ -2164,8 +2118,7 @@ if (typeof jQuery === 'undefined') {
   }
 
 
-  // AFFIX PLUGIN DEFINITION
-  // =======================
+
 
   function Plugin(option) {
     return this.each(function () {
@@ -2184,8 +2137,7 @@ if (typeof jQuery === 'undefined') {
   $.fn.affix.Constructor = Affix
 
 
-  // AFFIX NO CONFLICT
-  // =================
+
 
   $.fn.affix.noConflict = function () {
     $.fn.affix = old
@@ -2193,8 +2145,7 @@ if (typeof jQuery === 'undefined') {
   }
 
 
-  // AFFIX DATA-API
-  // ==============
+
 
   $(window).on('load', function () {
     $('[data-spy="affix"]').each(function () {

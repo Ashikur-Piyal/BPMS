@@ -2,7 +2,7 @@
 
 (function ($) 
 {
-	function init(plot) // this is the "body" of the plugin
+	function init(plot) 
 	{
 		var canvas = null;
 		var target = null;
@@ -17,29 +17,29 @@
 		var processed = false;
 		var raw = false;
 		
-		// interactive variables	
+		
 		var highlights = [];	
 	
-		// add hook to determine if pie plugin in enabled, and then perform necessary operations
+		
 		plot.hooks.processOptions.push(checkPieEnabled);
 		plot.hooks.bindEvents.push(bindEvents);	
 
-		// check to see if the pie plugin is enabled
+		
 		function checkPieEnabled(plot, options)
 		{
 			if (options.series.pie.show)
 			{
-				//disable grid
+				
 				options.grid.show = false;
 				
-				// set labels.show
+				
 				if (options.series.pie.label.show=='auto')
 					if (options.legend.show)
 						options.series.pie.label.show = false;
 					else
 						options.series.pie.label.show = true;
 				
-				// set radius
+				
 				if (options.series.pie.radius=='auto')
 					if (options.series.pie.label.show)
 						options.series.pie.radius = 3/4;

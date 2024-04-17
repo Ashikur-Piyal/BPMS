@@ -40,7 +40,7 @@ include('includes/dbconnection.php');
 		
 
 	<?php include_once('includes/footer.php');?>   
-	<!-- js --> 
+
 	<script src="js/jquery-2.2.3.min.js"></script> 
 	<script src="js/SmoothScroll.min.js"></script> 
 	<script src="js/jarallax.js"></script> 
@@ -52,7 +52,7 @@ include('includes/dbconnection.php');
 			imgHeight: 768
 		})
 	</script>  
-	<!-- //js -->
+
 
 	 
 	
